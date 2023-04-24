@@ -30,3 +30,8 @@
 .lista_Contactos .telefono{
     font-weight: bold;
 }
+
+.list-points li:before {
+    content: "\2022";
+    margin-right: 8px;
+}

@@ -105,10 +105,8 @@ function actualizarListaContactos(){
             <p>Dirección: ${contacto.direccion}</p>
             <p class="telefono">Teléfono: ${contacto.telefono}</p>
             <button class="btn btn-success" id="editar" onclick="editarContacto('${contacto.nombre}', '${contacto.apellidoP}', '${contacto.apellidoM}', '${contacto.fechaNac}', '${contacto.email}', '${contacto.direccion}', '${contacto.telefono}')">🗑 Editar</button>
-
             <button class="btn btn-danger" id="eliminar" onclick="eliminarContacto('${contacto.nombre}')">🖉 Eliminar</button>
         </li>
-
       `;
   // Agregar el evento click al elemento de la lista
   li.addEventListener('click', () => {
@@ -122,5 +120,46 @@ function actualizarListaContactos(){
   });
 }
 
+function buscarContacto() {
+  const inputBusqueda = document.getElementById('busqueda').value;
+  const resultadosBusqueda = miAgenda.buscarContacto(inputBusqueda);
+  
+  // Limpiar la lista de contactos
+  listaContactos.innerHTML = '';
+
+  // Si no hay resultados, mostrar un mensaje indicando que no se encontraron contactos
+  if (resultadosBusqueda.length === 0) {
+    const mensaje = document.createElement('p');
+    mensaje.textContent = 'No se encontraron resultados para la búsqueda realizada.';
+    listaContactos.appendChild(mensaje);
+  } else {
+    // Si hay resultados, mostrarlos en la lista de contactos
+    resultadosBusqueda.forEach((contacto) => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <li class="contact" id="lista-contactos">
+            <h5 class="card-title"><span id="nombre">${contacto.nombre}</span> ${contacto.apellidoP} ${contacto.apellidoM}</h5>
+            <p>Fecha de nacimiento: ${contacto.fechaNac}</p>
+            <p>Email: ${contacto.email}</p>
+            <p>Dirección: ${contacto.direccion}</p>
+            <p class="telefono">Teléfono: ${contacto.telefono}</p>
+            <button class="btn btn-success" id="editar" onclick="editarContacto('${contacto.nombre}', '${contacto.apellidoP}', '${contacto.apellidoM}', '${contacto.fechaNac}', '${contacto.email}', '${contacto.direccion}', '${contacto.telefono}')">🗑 Editar</button>
+            <button class="btn btn-danger" id="eliminar" onclick="eliminarContacto('${contacto.nombre}')">🖉 Eliminar</button>
+        </li>
+      `;
+      
+      // Agregar el evento click al elemento de la lista
+      li.addEventListener('click', () => {
+        // Obtener el nombre del contacto y mostrarlo en la consola
+        const nombreContacto = li.querySelector('#nombre').textContent;
+        console.log(nombreContacto);
+      });
+
+      listaContactos.appendChild(li);
+    });
+  }
+}
+
+document.getElementById('buscar').addEventListener('click', buscarContacto);
 
 document.getElementById('agregar').addEventListener('click', agregarContacto);

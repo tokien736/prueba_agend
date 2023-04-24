@@ -17,7 +17,7 @@
     />
 
 
-    <title>Home</title>
+    <title>Formulario de Contacto</title>
 </head>
 <body>
     <head>
@@ -47,39 +47,44 @@
           </nav>
     </head>
     <main>
-        <div class="container">
-            <div class="col-md-6">
-                <h1>Bienvenido a nuestra agenda de contactos</h1>
-                <p>Esta agenda está hecha con HTML, CSS, Bootstrap 5 y JavaScript.</p>
-                <p>En ella podrás almacenar y organizar la información de tus contactos de manera fácil y rápida.</p>
-                <p>Además, podrás visualizar la información de cada contacto en forma de tarjeta para una mejor navegación.</p>
-            </div>
-        
-            <h2 class="mt-5">Funcionalidades de la agenda</h2>
-            <ul class="list-unstyled list-points">
-                <li>Lista de contactos</li>
-                <li>Agregar contactos</li>
-                <li>Buscar contactos</li>
+        <div class="container my-5">
+            <h1>Formulario de Contacto</h1>
+            <form id="form-contactos">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control mb-2" id="nombre" name="nombre" required><br>
+
+            <label for="apellidoP">Apellido Paterno:</label>
+            <input type="text" class="form-control mb-2" id="apellidoP" name="apellidoP" required><br>
+
+            <label for="apellidoM">Apellido Materno:</label>
+            <input type="text"  class="form-control mb-2" id="apellidoM" name="apellidoM" required><br>
+
+            <label for="fechaNac">Fecha de Nacimiento:</label>
+            <input type="date"  class="form-control mb-2" id="fechaNac" name="fechaNac"><br>
+
+            <label for="email">Email:</label>
+            <input type="email" class="form-control mb-2" id="email" name="email" required><br>
+
+            <label for="direccion">Dirección:</label>
+            <textarea id="direccion" class="form-control mb-2" name="direccion"></textarea><br>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel"  class="form-control mb-2" id="telefono" name="telefono"><br>
+
+            <button class="btn btn-primary" type="submit" id="agregar">Agregar Contacto</button>
+            </form>
+            <h2>Contactos Agregados:</h2>
+            <ul id="listaContactos" class="lista_Contactos">
+                <!-- aquí se mostrarán los contactos -->
             </ul>
-        
-            <h2 class="mt-5">¿Quiénes somos?</h2>
-            <p>Somos un grupo de construcción de software de la Universidad Continental. Nuestra pasión es el desarrollo de soluciones tecnológicas innovadoras y de alta calidad. Estamos comprometidos en brindar a nuestros clientes soluciones personalizadas y eficaces para satisfacer sus necesidades. Nos esforzamos por mantenernos a la vanguardia de la industria tecnológica, para así ofrecer productos y servicios que ayuden a mejorar la eficiencia y el rendimiento de las empresas y organizaciones.</p>
-        </div>    
+        </div>
+
     </main>
 
 
-    <footer class="bg-light text-center text-lg-start">
-        <div class="container p-4">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center">
-                        <p>Todos los derechos reservados: Agenda de contactos © 2021</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
+    <!--Llamada a los archivos js-->
+    <script src="agenda.js"></script>
+    <script src="app.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>   
 </body>
